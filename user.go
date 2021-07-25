@@ -1,7 +1,7 @@
 package quaverapi
 
 import (
-	"api/types"
+	"github.com/elainaaa/go-osuapi/structs"
 	"fmt"
 )
 
@@ -15,7 +15,7 @@ func SearchUsers(username string) (*Users, error) {
 		return nil, err
 	}
 	
-	users := types.Users{}
+	users := structs.Users{}
 	err = json.Unmarshal(rawData, &users)
 	if err != nil {
 		return nil, err
