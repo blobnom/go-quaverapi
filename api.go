@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-var (
+const (
 	BaseURL string = "https://api.quavergame.com/v1"
 )
 
