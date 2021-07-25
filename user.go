@@ -7,11 +7,11 @@ import (
 	"github.com/elainaaa/go-quaverapi/structs"
 )
 
-func GetUser(id int) (*User, error) {
+func GetUser(id int) (*structs.User, error) {
 	return nil, nil
 }
 
-func SearchUsers(username string) (*Users, error) {
+func SearchUsers(username string) (*structs.Users, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/search/%s", username))
 	if err != nil {
 		return nil, err

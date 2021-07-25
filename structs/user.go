@@ -34,16 +34,16 @@ type UserInfo struct {
 }
 
 type UserSocials struct {
-    Discord string `json:"discord"`
-    Twitter string `json:"twitter"`
-    Twitch  string `json:"twitch"`
-    Youtube string `json:"youtube"`
+	Discord string `json:"discord"`
+	Twitter string `json:"twitter"`
+	Twitch  string `json:"twitch"`
+	Youtube string `json:"youtube"`
 }
 
 type UserActivity struct {
 	ID   int             `json:"id"`
 	Type int             `json:"type"`
-	Date string          `json:"timestamp"
+	Date string          `json:"timestamp"`
 	Map  UserActivityMap `json:"map"`
 }
 
