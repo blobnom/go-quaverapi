@@ -1,11 +1,9 @@
 package structs
 
-// The Response for GetUser function
 type User struct {
 	User UserData `json:"user"`
 }
 
-// The Response for SearchUsers function
 type Users struct {
 	Users []UserInfo `json:"users"`
 }
