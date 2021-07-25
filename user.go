@@ -1,8 +1,10 @@
 package quaverapi
 
 import (
-	"github.com/elainaaa/go-osuapi/structs"
+	"encoding/json"
 	"fmt"
+
+	"github.com/elainaaa/go-quaverapi/structs"
 )
 
 func GetUser(id int) (*User, error) {
@@ -14,12 +16,12 @@ func SearchUsers(username string) (*Users, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	users := structs.Users{}
 	err = json.Unmarshal(rawData, &users)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	return &users, nil
 }
