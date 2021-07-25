@@ -16,8 +16,8 @@ type UserData struct {
 }
 
 type UserInfo struct {
-	ID           int         `json:"id"`
-	SteamID      string      `json:"steam_id"`
+	Id           int         `json:"id"`
+	SteamId      string      `json:"steam_id"`
 	RegDate      string      `json:"time_registered"`
 	Allowed      int         `json:"allowed"`
 	Privileges   int         `json:"privileges"`
@@ -39,14 +39,14 @@ type UserSocials struct {
 }
 
 type UserActivity struct {
-	ID   int             `json:"id"`
+	Id   int             `json:"id"`
 	Type int             `json:"type"`
 	Date string          `json:"timestamp"`
 	Map  UserActivityMap `json:"map"`
 }
 
 type UserActivityMap struct {
-	ID   int    `json:"id"`
+	Id   int    `json:"id"`
 	Name string `json:"name"`
 }
 
@@ -76,4 +76,28 @@ type UserStats struct {
 	MultiWins      int     `json:"multiplayer_wins"`
 	MultiLosses    int     `json:"multiplayer_losses"`
 	MultiTies      int     `json:"multiplayer_ties"`
+}
+
+type RankGraph struct {
+	Status     int    `json:"status"`
+	Statistics []Rank `json:"statistics"`
+}
+
+type Rank struct {
+	Rank      int    `json:"rank"`
+	Timestamp string `json:"timestamp"`
+}
+
+type Achievements struct {
+	Status       int           `json:"status"`
+	Achievements []Achievement `json:"achievements"`
+}
+
+type Achievement struct {
+	Id           int    `json:"id"`
+	SteamApiName string `json:"steam_api_name"`
+	Name         string `json:"name"`
+	Description  string `json:"description"`
+	Difficulty   string `json:"difficulty"`
+	Unlocked     bool   `json:"unlocked"`
 }
