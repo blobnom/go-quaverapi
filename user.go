@@ -22,7 +22,7 @@ func GetUser(id int) (*structs.UserData, error) {
 	return &user.User, nil
 }
 
-func SearchUsers(username string) (*structs.UserInfo, error) {
+func SearchUsers(username string) (*[]structs.UserInfo, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/search/%s", username))
 	if err != nil {
 		return nil, err
