@@ -8,7 +8,18 @@ import (
 )
 
 func GetUser(id int) (*structs.User, error) {
-	return nil, nil
+	rawData, err := ApiCall(fmt.Sprintf("/users/full/%d", id))
+	if err != nil {
+		return nil, err
+	}
+
+	user := structs.User{}
+	err = json.Unmarshal(rawData, &user)
+	if err != nil {
+		return nil, err
+	}
+
+	return &user, nil
 }
 
 func SearchUsers(username string) (*structs.Users, error) {
