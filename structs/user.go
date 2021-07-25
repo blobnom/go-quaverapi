@@ -11,10 +11,10 @@ type Users struct {
 }
 
 type UserData struct {
-	Info     UserInfo   `json:"info"`
-	Activity []Activity `json:"activity_feed"`
-	Keys4    UserMode   `json:"keys4"`
-	Keys7    UserMode   `json:"keys7"`
+	Info     UserInfo       `json:"info"`
+	Activity []UserActivity `json:"activity_feed"`
+	Keys4    UserMode       `json:"keys4"`
+	Keys7    UserMode       `json:"keys7"`
 }
 
 type UserInfo struct {
