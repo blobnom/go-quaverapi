@@ -19,7 +19,7 @@ func GetUser(id int) (*structs.User, error) {
 		return nil, err
 	}
 
-	return &user, nil
+	return &user.User, nil
 }
 
 func SearchUsers(username string) (*structs.Users, error) {
@@ -34,5 +34,5 @@ func SearchUsers(username string) (*structs.Users, error) {
 		return nil, err
 	}
 
-	return &users, nil
+	return &users.Users, nil
 }
