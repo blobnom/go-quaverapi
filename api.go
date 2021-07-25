@@ -3,7 +3,6 @@ package quaverapi
 import (
 	"io/ioutil"
 	"net/http"
-	"fmt"
 )
 
 var (
@@ -19,13 +18,4 @@ func ApiCall(path string) ([]byte, error) {
 	data, err := ioutil.ReadAll(req.Body)
 	defer req.Body.Close()
 	return data, err
-}
-
-func main() {
-	users, err := SearchUsers("lewdloli")
-	if err != nil {
-		panic(err)
-	}
-	
-	fmt.Printf("%+v", users)
 }
