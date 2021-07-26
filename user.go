@@ -22,7 +22,7 @@ func GetUser(id int) (*structs.UserData, error) {
 	return &user.User, nil
 }
 
-func SearchUsers(username string) ([]structs.UserInfo, error) {
+func SearchUsers(username string) (*[]structs.UserInfo, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/search/%s", username))
 	if err != nil {
 		return nil, err
@@ -34,7 +34,7 @@ func SearchUsers(username string) ([]structs.UserInfo, error) {
 		return nil, err
 	}
 
-	return users.Users, nil
+	return &users.Users, nil
 }
 
 func GetUserRankGraph(id int, mode int) (*structs.RankGraph, error) {
@@ -67,7 +67,7 @@ func GetUserAchievements(id int) (*structs.Achievements, error) {
 	return &achievements, nil
 }
 
-func GetUserMapsets(id int) ([]structs.Mapset, error) {
+func GetUserMapsets(id int) (*[]structs.Mapset, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/mapsets/%d", id))
 	if err != nil {
 		return nil, err
@@ -79,5 +79,5 @@ func GetUserMapsets(id int) ([]structs.Mapset, error) {
 		return nil, err
 	}
 
-	return mapsets.Mapsets, nil
+	return &mapsets.Mapsets, nil
 }
