@@ -38,7 +38,7 @@ type Map struct {
 	Description      string  `json:"description"`
 	DifficultyName   string  `json:"difficulty_name"`
 	Length           int     `json:"length"`
-	Bpm              int     `json:"bpm"`
+	Bpm              float64 `json:"bpm"`
 	DifficultyRating float64 `json:"difficulty_rating"`
 	ObjectsNormal    int     `json:"count_hitobject_normal"`
 	ObjectsLong      int     `json:"count_hitobject_long"`
