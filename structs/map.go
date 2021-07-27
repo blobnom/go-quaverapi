@@ -1,8 +1,18 @@
 package structs
 
 type Mapsets struct {
-	Status  int      `json:"status"`
-	Mapsets []Mapset `json:"mapsets"`
+	Status int    `json:"status"`
+	Mapset Mapset `json:"mapset"`
+}
+
+type UserMapsets struct {
+	Status  int       `json:"status"`
+	Mapsets []Mapsets `json:"mapsets"`
+}
+
+type Maps struct {
+	Status int `json:"status"`
+	Map    Map `json:"map"`
 }
 
 type Mapset struct {
