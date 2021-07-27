@@ -67,17 +67,17 @@ func GetUserAchievements(id int) (*structs.Achievements, error) {
 	return &achievements, nil
 }
 
-func GetUserMapsets(id int) (*[]structs.Mapset, error) {
+func GetUserMapsets(id int) (*structs.UserMapsets, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/mapsets/%d", id))
 	if err != nil {
 		return nil, err
 	}
 
-	mapsets := structs.Mapsets{}
+	mapsets := structs.UserMapsets{}
 	err = json.Unmarshal(rawData, &mapsets)
 	if err != nil {
 		return nil, err
 	}
 
-	return &mapsets.Mapsets, nil
+	return &mapsets, nil
 }
