@@ -3,17 +3,15 @@ package quaverapi
 import (
 	"encoding/json"
 	"fmt"
-
-	"github.com/elainaaa/go-quaverapi/structs"
 )
 
-func GetMapset(id int) (*structs.Mapsets, error) {
+func GetMapset(id int) (*Mapsets, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/mapsets/%d", id))
 	if err != nil {
 		return nil, err
 	}
 
-	mapset := structs.Mapsets{}
+	mapset := Mapsets{}
 	err = json.Unmarshal(rawData, &mapset)
 	if err != nil {
 		return nil, err
@@ -22,13 +20,13 @@ func GetMapset(id int) (*structs.Mapsets, error) {
 	return &mapset, nil
 }
 
-func GetMap(id int) (*structs.Maps, error) {
+func GetMap(id int) (*Maps, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/maps/%d", id))
 	if err != nil {
 		return nil, err
 	}
 
-	maps := structs.Maps{}
+	maps := Maps{}
 	err = json.Unmarshal(rawData, &maps)
 	if err != nil {
 		return nil, err
