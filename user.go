@@ -5,22 +5,22 @@ import (
 	"fmt"
 )
 
-func GetUser(id int) (*UserData, error) {
+func GetUser(id int) (UserData, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/full/%d", id))
 	if err != nil {
-		return nil, err
+		return UserData{}, err
 	}
 
 	user := User{}
 	err = json.Unmarshal(rawData, &user)
 	if err != nil {
-		return nil, err
+		return UserData{}, err
 	}
 
-	return &user.User, nil
+	return user.User, nil
 }
 
-func SearchUsers(username string) (*[]UserInfo, error) {
+func SearchUsers(username string) ([]UserInfo, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/search/%s", username))
 	if err != nil {
 		return nil, err
@@ -32,50 +32,50 @@ func SearchUsers(username string) (*[]UserInfo, error) {
 		return nil, err
 	}
 
-	return &users.Users, nil
+	return users.Users, nil
 }
 
-func GetUserRankGraph(id int, mode int) (*RankGraph, error) {
+func GetUserRankGraph(id int, mode int) (RankGraph, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/graph/rank?id=%d&mode=%d", id, mode))
 	if err != nil {
-		return nil, err
+		return RankGraph{}, err
 	}
 
 	rankgraph := RankGraph{}
 	err = json.Unmarshal(rawData, &rankgraph)
 	if err != nil {
-		return nil, err
+		return RankGraph{}, err
 	}
 
-	return &rankgraph, nil
+	return rankgraph, nil
 }
 
-func GetUserAchievements(id int) (*Achievements, error) {
+func GetUserAchievements(id int) (Achievements, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/%d/achievements", id))
 	if err != nil {
-		return nil, err
+		return Achievements{}, err
 	}
 
 	achievements := Achievements{}
 	err = json.Unmarshal(rawData, &achievements)
 	if err != nil {
-		return nil, err
+		return Achievements{}, err
 	}
 
-	return &achievements, nil
+	return achievements, nil
 }
 
-func GetUserMapsets(id int) (*UserMapsets, error) {
+func GetUserMapsets(id int) (UserMapsets, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/mapsets/%d", id))
 	if err != nil {
-		return nil, err
+		return UserMapsets{}, err
 	}
 
 	mapsets := UserMapsets{}
 	err = json.Unmarshal(rawData, &mapsets)
 	if err != nil {
-		return nil, err
+		return UserMapsets{}, err
 	}
 
-	return &mapsets, nil
+	return mapsets, nil
 }

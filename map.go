@@ -5,32 +5,32 @@ import (
 	"fmt"
 )
 
-func GetMapset(id int) (*Mapsets, error) {
+func GetMapset(id int) (Mapsets, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/mapsets/%d", id))
 	if err != nil {
-		return nil, err
+		return Mapsets{}, err
 	}
 
 	mapset := Mapsets{}
 	err = json.Unmarshal(rawData, &mapset)
 	if err != nil {
-		return nil, err
+		return Mapsets{}, err
 	}
 
-	return &mapset, nil
+	return mapset, nil
 }
 
-func GetMap(id int) (*Maps, error) {
+func GetMap(id int) (Maps, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/maps/%d", id))
 	if err != nil {
-		return nil, err
+		return Maps{}, err
 	}
 
 	maps := Maps{}
 	err = json.Unmarshal(rawData, &maps)
 	if err != nil {
-		return nil, err
+		return Maps{}, err
 	}
 
-	return &maps, nil
+	return maps, nil
 }

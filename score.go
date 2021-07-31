@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func GetUserBest(id int, mode int) (*[]Score, error) {
+func GetUserBest(id int, mode int) ([]Score, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/scores/best?id=%d&mode=%d", id, mode))
 	if err != nil {
 		return nil, err
@@ -17,10 +17,10 @@ func GetUserBest(id int, mode int) (*[]Score, error) {
 		return nil, err
 	}
 
-	return &scores.Scores, nil
+	return scores.Scores, nil
 }
 
-func GetUserRecent(id int, mode int) (*[]Score, error) {
+func GetUserRecent(id int, mode int) ([]Score, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/scores/recent?id=%d&mode=%d", id, mode))
 	if err != nil {
 		return nil, err
@@ -32,10 +32,10 @@ func GetUserRecent(id int, mode int) (*[]Score, error) {
 		return nil, err
 	}
 
-	return &scores.Scores, nil
+	return scores.Scores, nil
 }
 
-func GetUserFirstPlace(id int, mode int) (*[]Score, error) {
+func GetUserFirstPlace(id int, mode int) ([]Score, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/users/scores/firstplace?id=%d&mode=%d", id, mode))
 	if err != nil {
 		return nil, err
@@ -47,10 +47,10 @@ func GetUserFirstPlace(id int, mode int) (*[]Score, error) {
 		return nil, err
 	}
 
-	return &scores.Scores, nil
+	return scores.Scores, nil
 }
 
-func GetMapScores(id int) (*[]MapScore, error) {
+func GetMapScores(id int) ([]MapScore, error) {
 	rawData, err := ApiCall(fmt.Sprintf("/scores/map/%d", id))
 	if err != nil {
 		return nil, err
@@ -62,5 +62,5 @@ func GetMapScores(id int) (*[]MapScore, error) {
 		return nil, err
 	}
 
-	return &scores.Scores, nil
+	return scores.Scores, nil
 }
