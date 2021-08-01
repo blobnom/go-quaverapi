@@ -275,3 +275,16 @@ type Achievement struct {
 	Difficulty   string `json:"difficulty"`
 	Unlocked     bool   `json:"unlocked"`
 }
+
+// Server Stats structures
+type Server struct {
+    Status int         `json:"status"`
+    Stats  ServerStats `json:"stats"`
+}
+
+type ServerStats struct {
+    OnlineUsers  int64 `json:"total_online_users"`
+    TotalUsers   int64 `json:"total_users"`
+    TotalMapsets int64 `json:"total_mapsets"`
+    TotalScores  int64 `json:"total_scores"`
+}
