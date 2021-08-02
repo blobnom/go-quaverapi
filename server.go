@@ -2,7 +2,6 @@ package quaverapi
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 func GetServerStats() (ServerStats, error) {
