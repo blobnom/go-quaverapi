@@ -14,7 +14,7 @@ func GetServerStats() (ServerStats, error) {
 	server := Server{}
 	err = json.Unmarshal(rawData, &server)
 	if err != nil {
-		return UserData{}, err
+		return ServerStats{}, err
 	}
 
 	return server.Stats, nil
