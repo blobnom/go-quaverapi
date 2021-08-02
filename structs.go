@@ -56,8 +56,8 @@ type Mapsets struct {
 }
 
 type UserMapsets struct {
-	Status  int       `json:"status"`
-	Mapsets []Mapsets `json:"mapsets"`
+	Status  int      `json:"status"`
+	Mapsets []Mapset `json:"mapsets"`
 }
 
 type Maps struct {
