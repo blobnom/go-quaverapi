@@ -7,7 +7,7 @@ import (
 func GetServerStats() (ServerStats, error) {
 	rawData, err := ApiCall("/stats")
 	if err != nil {
-		return Server{}, err
+		return ServerStats{}, err
 	}
 
 	server := Server{}
