@@ -158,7 +158,7 @@ type MapScore struct {
 	Score        int      `json:"total_score"`
 	Accuracy     float64  `json:"accuracy"`
 	Grade        string   `json:"grade"`
-	MaxCombo     int      `json:"count_combo"`
+	MaxCombo     int      `json:"max_combo"`
 	CountMarv    int      `json:"count_marv"`
 	CountPerf    int      `json:"count_perf"`
 	CountGreat   int      `json:"count_great"`
